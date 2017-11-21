@@ -27,6 +27,7 @@
 #include "Snake.h"
 #include "Fruit.h"
 #include <random>
+#include "FrameTimer.h"
 
 class Game
 {
@@ -42,6 +43,7 @@ private:
 	/*  User Functions              */
 	/********************************/
 private:
+	FrameTimer ft;
 	MainWindow& wnd;
 	Graphics gfx;
 	Board brd;
