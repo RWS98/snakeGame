@@ -7,8 +7,8 @@ Fruit::Fruit(std::mt19937 & rng, const Board & brd, const Snake & snake)
 
 void Fruit::Respawn(std::mt19937 & rng, const Board & brd, const Snake & snake)
 {
-	std::uniform_int_distribution<int> xDist(0, brd.GetBoardWidth() - 1);
-	std::uniform_int_distribution<int> yDist(0, brd.GetBoardHeight() - 1);
+	std::uniform_int_distribution<int> xDist(1, brd.GetBoardWidth() - 2);
+	std::uniform_int_distribution<int> yDist(1, brd.GetBoardHeight() - 2);
 
 	Location newLoc;
 	do

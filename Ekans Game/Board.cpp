@@ -57,6 +57,6 @@ int Board::GetBoardHeight() const
 
 bool Board::IsInsideBoard(const Location & loc) const
 {
-	return loc.x >=0 && loc.x < width &&
-		loc.y >=0 && loc.y < height;
+	return loc.x >=1 && loc.x < width-1 &&
+		loc.y >=1 && loc.y < height-1;
 }
