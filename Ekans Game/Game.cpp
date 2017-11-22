@@ -94,40 +94,13 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	Color borderColor = Colors::Blue;
+	brd.DrawBorder(borderColor);
 	//SpriteCodex::DrawTitle(300, 200, gfx);
 	snake.Draw(brd);
 	fruit.Draw(brd);
 	if (gameIsOver)
 	{
 		SpriteCodex::DrawGameOver(400, 300, gfx);
-	}
-	
-	Color c(0, 0, 255);
-
-	int x, y;
-
-	for (int j = 0; j < 30; j++)
-	{
-		x = 0;
-		Location loc = { x,j };
-		brd.DrawCell(loc, c);
-	}
-	for (int i = 0; i < 40; i++)
-	{
-		y = 0;
-		Location loc = { i,y };
-		brd.DrawCell(loc, c);
-	}
-	for (int j = 0; j < 30; j++)
-	{
-		x = 39;
-		Location loc = { x,j };
-		brd.DrawCell(loc, c);
-	}
-	for (int i = 0; i < 40; i++)
-	{
-		y = 29;
-		Location loc = { i,y };
-		brd.DrawCell(loc, c);
 	}
 }
