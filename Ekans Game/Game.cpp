@@ -28,7 +28,7 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	brd( gfx ),
 	rng( std::random_device()() ),
-	snake( { 2,2 } ),
+	snake( { 20,15 } ),
 	fruit( rng,brd,snake )
 {
 }
@@ -66,10 +66,10 @@ void Game::UpdateModel()
 			delta_loc = { 1,0 };
 		}
 
-		snakeMoveCounter++;
+		snakeMoveCounter += dt;
 		if (snakeMoveCounter >= snakeMovePeriod)
 		{
-			snakeMoveCounter = 0;
+			snakeMoveCounter -= snakeMovePeriod;
 			Location next = snake.GetNextHeadLocation(delta_loc);
 			if (!brd.IsInsideBoard(next) || snake.IsInTileExceptEnd(next))
 			{
@@ -94,6 +94,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	const float dt = ft.Mark();
 	Color borderColor = Colors::Blue;
 	brd.DrawBorder(borderColor);
 	//SpriteCodex::DrawTitle(300, 200, gfx);

@@ -51,8 +51,8 @@ private:
 	Location delta_loc = { 1,0 };
 	std::mt19937 rng;
 	Fruit fruit;
-	static constexpr int snakeMovePeriod = 20;
-	int snakeMoveCounter = 0;
+	static constexpr float snakeMovePeriod = 0.3f;
+	float snakeMoveCounter = 0.0f;
 	bool gameIsOver = false;
 	/********************************/
 	/*  User Variables              */
