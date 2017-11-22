@@ -318,11 +318,20 @@ void Graphics::PutPixel( int x,int y,Color c )
 
 void Graphics::DrawRect(int x0, int y0, int x1, int y1, Color c)
 {
+	Color real;
 	for (int y = y0; y < y1; ++y)
 	{
 		for (int x = x0; x < x1; ++x)
 		{
-			PutPixel(x, y, c);
+			if (x == x0 || y == y0 || x == x1-1 || y == y1-1)
+			{
+				real = Colors::Black;
+			}
+			else
+			{
+				real = c;
+			}
+			PutPixel(x, y, real);
 		}
 	}
 }
